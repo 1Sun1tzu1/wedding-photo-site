@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
@@ -8,29 +7,18 @@
   <title>Adriana & Tobiasz</title>
 
   <style>
-
     body {
       margin: 0;
       min-height: 100vh;
-
       background-image:
-        linear-gradient(
-          rgba(255,255,255,0.35),
-          rgba(255,255,255,0.35)
-        ),
+        linear-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.35)),
         url('images/weele.jpeg');
-
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-
+      background-attachment: fixed;
       font-family: Arial, sans-serif;
       color: #2d2524;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
       text-align: center;
       padding: 24px;
       box-sizing: border-box;
@@ -38,13 +26,13 @@
 
     .card {
       background: rgba(255,255,255,0.92);
-      padding: 50px 35px;
+      padding: 45px 35px;
       border-radius: 32px;
-      max-width: 700px;
+      max-width: 760px;
       width: 100%;
-
-      box-shadow:
-        0 20px 60px rgba(0,0,0,0.15);
+      margin: 0 auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      box-sizing: border-box;
     }
 
     .small {
@@ -58,15 +46,11 @@
     .couple-photo {
       width: 280px;
       max-width: 100%;
-
       display: block;
       margin: 0 auto 25px auto;
-
       border-radius: 20px;
       border: 5px solid white;
-
-      box-shadow:
-        0 10px 30px rgba(0,0,0,0.20);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.20);
     }
 
     h1 {
@@ -75,35 +59,76 @@
       margin: 0 0 20px 0;
     }
 
+    h2 {
+      font-family: Georgia, serif;
+      font-size: 30px;
+      margin: 0 0 12px 0;
+    }
+
+    h3 {
+      font-size: 22px;
+      margin: 0 0 10px 0;
+    }
+
     p {
       font-size: 20px;
       line-height: 1.6;
       color: #5f5351;
-      margin-bottom: 18px;
+      margin: 0 0 18px 0;
     }
 
-    .button {
+    .details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 32px 0;
+    }
+
+    .info-box {
+      background: rgba(255,255,255,0.85);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+    }
+
+    .info-box p {
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+
+    .button,
+    .mini-button {
       display: inline-block;
-
-      margin-top: 25px;
-
-      padding: 18px 36px;
-
       background: #b76e79;
       color: white;
-
       text-decoration: none;
-
       border-radius: 999px;
-
-      font-size: 20px;
       font-weight: bold;
-
       transition: 0.2s ease;
     }
 
-    .button:hover {
+    .button {
+      margin-top: 15px;
+      padding: 18px 36px;
+      font-size: 20px;
+    }
+
+    .mini-button {
+      display: block;
+      padding: 12px 18px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .button:hover,
+    .mini-button:hover {
       opacity: 0.9;
+    }
+
+    .upload-section {
+      margin-top: 35px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(183,110,121,0.25);
     }
 
     .note {
@@ -113,14 +138,22 @@
       line-height: 1.5;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
+      body {
+        padding: 18px;
+        background-attachment: scroll;
+      }
 
       .card {
-        padding: 35px 25px;
+        padding: 32px 22px;
       }
 
       h1 {
-        font-size: 42px;
+        font-size: 40px;
+      }
+
+      h2 {
+        font-size: 26px;
       }
 
       p {
@@ -130,90 +163,105 @@
       .couple-photo {
         width: 220px;
       }
+
+      .details {
+        grid-template-columns: 1fr;
+      }
     }
-
   </style>
-
 </head>
 
 <body>
 
   <main class="card">
 
-```
-<div class="small">
-  Wspomnienia z wesela
-</div>
+    <div class="small">Wspomnienia z wesela</div>
 
-<img
-  src="images/couple.png"
-  alt="Adriana i Tobiasz"
-  class="couple-photo"
->
+    <img
+      src="images/couple.png"
+      alt="Adriana i Tobiasz"
+      class="couple-photo"
+    >
 
-<h1>
-  Adriana ❤️ Tobiasz
-</h1>
+    <h1>Adriana ❤️ Tobiasz</h1>
 
-<p>
-  Dziękujemy, że świętujecie ten wyjątkowy dzień razem z nami.
-</p>
+    <p>
+      Dziękujemy, że świętujecie ten wyjątkowy dzień razem z nami.
+    </p>
 
-<p>
-  Jeżeli wykonaliście zdjęcia lub nagraliście krótkie filmiki podczas naszego wesela,
-  będziemy bardzo wdzięczni za ich przesłanie.
-</p>
+    <div class="details">
 
-<a
-  class="button"
-  href="https://www.dropbox.com/request/c9abgqjxe92qxmk6m6lj"
-  target="_blank"
-  rel="noopener noreferrer"
->
-   Prześlij zdjęcia i filmy
-</a>
+      <section class="info-box">
+        <h3>📍 Rezydencja w Szczerym Polu</h3>
+        <p>
+          Bystrzyca Nowa 9<br>
+          23-107 Strzyżewice
+        </p>
 
-<div class="note">
-  Zdjęcia i filmy nie będą automatycznie publikowane.
-  Najpierw zostaną przez nas obejrzane i wybrane.
+        <a
+          class="mini-button"
+          href="https://maps.app.goo.gl/sXgGDJpG5BapAWfS8"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Prowadź do sali
+        </a>
+      </section>
 
-  <br><br>
+      <section class="info-box">
+        <h3>⛪ Kościół</h3>
+        <p>
+          Start: 15:00<br>
+          NAZWA / ADRES KOŚCIOŁA
+        </p>
 
-  Dziękujemy za pomoc w zachowaniu wspomnień z tego wyjątkowego dnia ❤️
-</div>
-```<div class="info-left">
-  <h3> Rezydencja w szczerym Polu</h3>
-  <p>Bystrzyca Nowa 9<br>23-107 Strzyżewice</p>
-  <a
-    href="https://maps.app.goo.gl/sXgGDJpG5BapAWfS8"
-    target="_blank"
-  >
-    Prowadź do sali
-  </a>
-</div>
+        <a
+          class="mini-button"
+          href="https://maps.app.goo.gl/YWLiX2L7Qy3hHj9E8"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Prowadź do kościoła
+        </a>
 
-<div class="info-right">
-  <h3>⛪ Kościół</h3>
-  <p>
-    START: 15:00<br>
-    NAZWA / ADRES KOŚCIOŁA
-  </p>
+        <a
+          class="mini-button"
+          href="GOOGLE_CALENDAR_LINK"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Dodaj do kalendarza
+        </a>
+      </section>
 
-  <a
-    href="https://maps.app.goo.gl/YWLiX2L7Qy3hHj9E8"
-    target="_blank"
-  >
-    Prowadź do kościoła
-  </a>
+    </div>
 
-  <a
-    href="GOOGLE_CALENDAR_LINK"
-    target="_blank"
-  >
-    Dodaj do kalendarza
-  </a>
-</div>
+    <section class="upload-section">
+      <h2>📸 Podziel się wspomnieniami</h2>
 
+      <p>
+        Jeżeli wykonaliście zdjęcia lub nagraliście krótkie filmiki podczas naszego wesela,
+        będziemy bardzo wdzięczni za ich przesłanie.
+      </p>
+
+      <a
+        class="button"
+        href="https://www.dropbox.com/request/c9abgqjxe92qxmk6m6lj"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Prześlij zdjęcia i filmy
+      </a>
+
+      <div class="note">
+        Zdjęcia i filmy nie będą automatycznie publikowane.
+        Najpierw zostaną przez nas obejrzane i wybrane.
+
+        <br><br>
+
+        Dziękujemy za pomoc w zachowaniu wspomnień z tego wyjątkowego dnia ❤️
+      </div>
+    </section>
 
   </main>
 
