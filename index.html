@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -7,50 +9,6 @@
   <title>Adriana & Tobiasz</title>
 
   <style>
-    .countdown {
-  margin: 28px 0;
-  padding: 22px;
-  background: rgba(255,255,255,0.75);
-  border-radius: 24px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-}
-
-.countdown-title {
-  font-family: Georgia, serif;
-  font-size: 26px;
-  margin-bottom: 15px;
-  color: #2d2524;
-}
-
-.countdown-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-}
-
-.countdown-grid div {
-  background: rgba(183,110,121,0.12);
-  border-radius: 18px;
-  padding: 14px 8px;
-}
-
-.countdown-grid span {
-  display: block;
-  font-size: 30px;
-  font-weight: bold;
-  color: #b76e79;
-}
-
-.countdown-grid small {
-  font-size: 13px;
-  color: #5f5351;
-}
-
-@media (max-width: 500px) {
-  .countdown-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
     body {
       margin: 0;
       min-height: 100vh;
@@ -66,6 +24,7 @@
       text-align: center;
       padding: 24px;
       box-sizing: border-box;
+      overflow-x: hidden;
     }
 
     .card {
@@ -77,6 +36,8 @@
       margin: 0 auto;
       box-shadow: 0 20px 60px rgba(0,0,0,0.15);
       box-sizing: border-box;
+      position: relative;
+      z-index: 2;
     }
 
     .small {
@@ -90,6 +51,9 @@
     .couple-photo {
       width: 280px;
       max-width: 100%;
+      height: 260px;
+      object-fit: cover;
+      object-position: center top;
       display: block;
       margin: 0 auto 25px auto;
       border-radius: 20px;
@@ -99,7 +63,8 @@
 
     h1 {
       font-family: Georgia, serif;
-      font-size: 58px;
+      font-size: 52px;
+      line-height: 1.15;
       margin: 0 0 20px 0;
     }
 
@@ -119,6 +84,51 @@
       line-height: 1.6;
       color: #5f5351;
       margin: 0 0 18px 0;
+    }
+
+    .countdown {
+      margin: 28px 0;
+      padding: 22px;
+      background: rgba(255,255,255,0.75);
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .countdown-title {
+      font-family: Georgia, serif;
+      font-size: 26px;
+      margin-bottom: 15px;
+      color: #2d2524;
+    }
+
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .countdown-grid div {
+      background: rgba(183,110,121,0.12);
+      border-radius: 18px;
+      padding: 14px 8px;
+    }
+
+    .countdown-grid span {
+      display: block;
+      font-size: 30px;
+      font-weight: bold;
+      color: #b76e79;
+    }
+
+    .countdown-grid small {
+      font-size: 13px;
+      color: #5f5351;
+    }
+
+    .upload-section {
+      margin-top: 35px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(183,110,121,0.25);
     }
 
     .details {
@@ -169,17 +179,31 @@
       opacity: 0.9;
     }
 
-    .upload-section {
-      margin-top: 35px;
-      padding-top: 30px;
-      border-top: 1px solid rgba(183,110,121,0.25);
-    }
-
     .note {
       margin-top: 25px;
       font-size: 15px;
       color: #7a6c69;
       line-height: 1.5;
+    }
+
+    .petal {
+      position: fixed;
+      top: -40px;
+      z-index: 1;
+      pointer-events: none;
+      animation-name: fall;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      opacity: 0.85;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-50px) rotate(0deg);
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+      }
     }
 
     @media (max-width: 700px) {
@@ -193,7 +217,7 @@
       }
 
       h1 {
-        font-size: 40px;
+        font-size: 34px;
       }
 
       h2 {
@@ -205,7 +229,12 @@
       }
 
       .couple-photo {
-        width: 220px;
+        width: 100%;
+        height: 220px;
+      }
+
+      .countdown-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .details {
@@ -214,82 +243,7 @@
     }
   </style>
 </head>
-<script>
-  function addToCalendar(event) {
-    event.preventDefault();
 
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-    const googleCalendarLink =
-      "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%C5%9Alub%20Adriany%20i%20Tobiasza&dates=20260708T130000Z/20260708T140000Z&details=Uroczysto%C5%9B%C4%87%20%C5%9Blubna%20Adriany%20i%20Tobiasza%20o%20godzinie%2015%3A00&location=https%3A%2F%2Fmaps.app.goo.gl%2FYWLiX2L7Qy3hHj9E8";
-
-    const icsContent =
-`BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//Adriana i Tobiasz//Wedding//PL
-BEGIN:VEVENT
-UID:adriana-tobiasz-wedding-20260708@atmszawan.pl
-DTSTAMP:20260708T100000Z
-DTSTART:20260708T130000Z
-DTEND:20260708T140000Z
-SUMMARY:Ślub Adriany i Tobiasza
-LOCATION:https://maps.app.goo.gl/YWLiX2L7Qy3hHj9E8
-DESCRIPTION:Uroczystość ślubna Adriany i Tobiasza o godzinie 15:00
-END:VEVENT
-END:VCALENDAR`;
-
-    const isApple = /iPad|iPhone|iPod|Macintosh/.test(userAgent);
-
-    if (isApple) {
-      const blob = new Blob([icsContent], {
-        type: "text/calendar;charset=utf-8"
-      });
-
-      const url = URL.createObjectURL(blob);
-
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = "slub-adriana-tobiasz.ics";
-
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-
-      URL.revokeObjectURL(url);
-    } else {
-      window.open(googleCalendarLink, "_blank");
-    }
-  }
-</script>
-  <script>
-  const weddingDate = new Date("2026-07-08T15:00:00+02:00").getTime();
-
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = weddingDate - now;
-
-    if (distance <= 0) {
-      document.getElementById("days").innerText = "0";
-      document.getElementById("hours").innerText = "0";
-      document.getElementById("minutes").innerText = "0";
-      document.getElementById("seconds").innerText = "0";
-      return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((distance / (1000 * 60)) % 60);
-    const seconds = Math.floor((distance / 1000) % 60);
-
-    document.getElementById("days").innerText = days;
-    document.getElementById("hours").innerText = hours;
-    document.getElementById("minutes").innerText = minutes;
-    document.getElementById("seconds").innerText = seconds;
-  }
-
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-</script>
 <body>
 
   <main class="card">
@@ -307,32 +261,34 @@ END:VCALENDAR`;
     <p>
       Dziękujemy, że świętujecie ten wyjątkowy dzień razem z nami.
     </p>
+
     <div class="countdown">
-  <div class="countdown-title">Do ślubu pozostało</div>
+      <div class="countdown-title">Do ślubu pozostało</div>
 
-  <div class="countdown-grid">
-    <div>
-      <span id="days">0</span>
-      <small>dni</small>
+      <div class="countdown-grid">
+        <div>
+          <span id="days">0</span>
+          <small>dni</small>
+        </div>
+
+        <div>
+          <span id="hours">0</span>
+          <small>godzin</small>
+        </div>
+
+        <div>
+          <span id="minutes">0</span>
+          <small>minut</small>
+        </div>
+
+        <div>
+          <span id="seconds">0</span>
+          <small>sekund</small>
+        </div>
+      </div>
     </div>
 
-    <div>
-      <span id="hours">0</span>
-      <small>godzin</small>
-    </div>
-
-    <div>
-      <span id="minutes">0</span>
-      <small>minut</small>
-    </div>
-
-    <div>
-      <span id="seconds">0</span>
-      <small>sekund</small>
-    </div>
-  </div>
-</div>
-     <section class="upload-section">
+    <section class="upload-section">
       <h2>📸 Podziel się wspomnieniami</h2>
 
       <p>
@@ -358,11 +314,12 @@ END:VCALENDAR`;
         Dziękujemy za pomoc w zachowaniu wspomnień z tego wyjątkowego dnia ❤️
       </div>
     </section>
-    
+
     <div class="details">
 
       <section class="info-box">
         <h3>📍 Rezydencja w Szczerym Polu</h3>
+
         <p>
           Bystrzyca Nowa 9<br>
           23-107 Strzyżewice
@@ -380,8 +337,9 @@ END:VCALENDAR`;
 
       <section class="info-box">
         <h3>⛪ Kościół</h3>
+
         <p>
-          Sakrament małżeństwa : 15:00<br>
+          Sakrament małżeństwa: 15:00<br>
           Parafia św. Józefa Robotnika
         </p>
 
@@ -395,9 +353,9 @@ END:VCALENDAR`;
         </a>
 
         <a
-         class="mini-button"
-  href="#"
-  onclick="addToCalendar(event)"
+          class="mini-button"
+          href="#"
+          onclick="addToCalendar(event)"
         >
           Dodaj do kalendarza
         </a>
@@ -407,6 +365,110 @@ END:VCALENDAR`;
 
   </main>
 
+  <script>
+    function addToCalendar(event) {
+      event.preventDefault();
+
+      const googleCalendarLink =
+        "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%C5%9Alub%20Adriany%20i%20Tobiasza&dates=20260708T130000Z/20260708T140000Z&details=Uroczysto%C5%9B%C4%87%20%C5%9Blubna%20Adriany%20i%20Tobiasza%20o%20godzinie%2015%3A00&location=https%3A%2F%2Fmaps.app.goo.gl%2FYWLiX2L7Qy3hHj9E8";
+
+      const icsContent =
+`BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Adriana i Tobiasz//Wedding//PL
+BEGIN:VEVENT
+UID:adriana-tobiasz-wedding-20260708@atmszawan.pl
+DTSTAMP:20260708T100000Z
+DTSTART:20260708T130000Z
+DTEND:20260708T140000Z
+SUMMARY:Ślub Adriany i Tobiasza
+LOCATION:https://maps.app.goo.gl/YWLiX2L7Qy3hHj9E8
+DESCRIPTION:Uroczystość ślubna Adriany i Tobiasza o godzinie 15:00
+END:VEVENT
+END:VCALENDAR`;
+
+      const userAgent = navigator.userAgent || navigator.vendor || "";
+      const isApple = /iPhone|iPad|iPod|Macintosh/i.test(userAgent);
+
+      if (isApple) {
+        const blob = new Blob([icsContent], {
+          type: "text/calendar;charset=utf-8"
+        });
+
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+
+        link.href = url;
+        link.download = "slub-adriana-tobiasz.ics";
+
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        setTimeout(function () {
+          URL.revokeObjectURL(url);
+        }, 1000);
+      } else {
+        window.open(googleCalendarLink, "_blank");
+      }
+    }
+  </script>
+
+  <script>
+    function updateCountdown() {
+      const weddingDate = new Date("2026-07-08T15:00:00+02:00").getTime();
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      const daysElement = document.getElementById("days");
+      const hoursElement = document.getElementById("hours");
+      const minutesElement = document.getElementById("minutes");
+      const secondsElement = document.getElementById("seconds");
+
+      if (!daysElement || !hoursElement || !minutesElement || !secondsElement) {
+        return;
+      }
+
+      if (distance <= 0) {
+        daysElement.innerText = "0";
+        hoursElement.innerText = "0";
+        minutesElement.innerText = "0";
+        secondsElement.innerText = "0";
+        return;
+      }
+
+      daysElement.innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+      hoursElement.innerText = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      minutesElement.innerText = Math.floor((distance / (1000 * 60)) % 60);
+      secondsElement.innerText = Math.floor((distance / 1000) % 60);
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+  <script>
+    const petals = ["🌸", "🌺", "🌷"];
+
+    function createPetal() {
+      const petal = document.createElement("div");
+      petal.className = "petal";
+      petal.innerText = petals[Math.floor(Math.random() * petals.length)];
+
+      petal.style.left = Math.random() * 100 + "vw";
+      petal.style.fontSize = Math.random() * 12 + 18 + "px";
+      petal.style.animationDuration = Math.random() * 5 + 6 + "s";
+      petal.style.animationDelay = Math.random() * 3 + "s";
+
+      document.body.appendChild(petal);
+
+      setTimeout(function () {
+        petal.remove();
+      }, 12000);
+    }
+
+    setInterval(createPetal, 700);
+  </script>
+
 </body>
 </html>
-
