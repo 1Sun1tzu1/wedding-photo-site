@@ -170,7 +170,53 @@
     }
   </style>
 </head>
+<script>
+  function addToCalendar(event) {
+    event.preventDefault();
 
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    const googleCalendarLink =
+      "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%C5%9Alub%20Adriany%20i%20Tobiasza&dates=20260708T130000Z/20260708T140000Z&details=Uroczysto%C5%9B%C4%87%20%C5%9Blubna%20Adriany%20i%20Tobiasza%20o%20godzinie%2015%3A00&location=https%3A%2F%2Fmaps.app.goo.gl%2FYWLiX2L7Qy3hHj9E8";
+
+    const icsContent =
+`BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Adriana i Tobiasz//Wedding//PL
+BEGIN:VEVENT
+UID:adriana-tobiasz-wedding-20260708@atmszawan.pl
+DTSTAMP:20260708T100000Z
+DTSTART:20260708T130000Z
+DTEND:20260708T140000Z
+SUMMARY:Ślub Adriany i Tobiasza
+LOCATION:https://maps.app.goo.gl/YWLiX2L7Qy3hHj9E8
+DESCRIPTION:Uroczystość ślubna Adriany i Tobiasza o godzinie 15:00
+END:VEVENT
+END:VCALENDAR`;
+
+    const isApple = /iPad|iPhone|iPod|Macintosh/.test(userAgent);
+
+    if (isApple) {
+      const blob = new Blob([icsContent], {
+        type: "text/calendar;charset=utf-8"
+      });
+
+      const url = URL.createObjectURL(blob);
+
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "slub-adriana-tobiasz.ics";
+
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      URL.revokeObjectURL(url);
+    } else {
+      window.open(googleCalendarLink, "_blank");
+    }
+  }
+</script>
 <body>
 
   <main class="card">
@@ -225,10 +271,9 @@
         </a>
 
         <a
-          class="mini-button"
-          href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=%C5%9Alub%20Adriany%20i%20Tobiasza&dates=20260720T130000Z/20260720T140000Z&details=Uroczysto%C5%9B%C4%87%20%C5%9Blubna%20Adriany%20i%20Tobiasza&location=NAZWA%20%2F%20ADRES%20KO%C5%9ACIO%C5%81A"
-          target="_blank"
-          rel="noopener noreferrer"
+         class="mini-button"
+  href="#"
+  onclick="addToCalendar(event)"
         >
           Dodaj do kalendarza
         </a>
