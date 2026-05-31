@@ -7,6 +7,50 @@
   <title>Adriana & Tobiasz</title>
 
   <style>
+    .countdown {
+  margin: 28px 0;
+  padding: 22px;
+  background: rgba(255,255,255,0.75);
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.countdown-title {
+  font-family: Georgia, serif;
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #2d2524;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.countdown-grid div {
+  background: rgba(183,110,121,0.12);
+  border-radius: 18px;
+  padding: 14px 8px;
+}
+
+.countdown-grid span {
+  display: block;
+  font-size: 30px;
+  font-weight: bold;
+  color: #b76e79;
+}
+
+.countdown-grid small {
+  font-size: 13px;
+  color: #5f5351;
+}
+
+@media (max-width: 500px) {
+  .countdown-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
     body {
       margin: 0;
       min-height: 100vh;
@@ -170,6 +214,35 @@
     }
   </style>
 </head>
+  <script>
+  const weddingDate = new Date("2026-07-08T15:00:00+02:00").getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    if (distance <= 0) {
+      document.getElementById("days").innerText = "0";
+      document.getElementById("hours").innerText = "0";
+      document.getElementById("minutes").innerText = "0";
+      document.getElementById("seconds").innerText = "0";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((distance / (1000 * 60)) % 60);
+    const seconds = Math.floor((distance / 1000) % 60);
+
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
 <script>
   function addToCalendar(event) {
     event.preventDefault();
@@ -234,6 +307,31 @@ END:VCALENDAR`;
     <p>
       Dziękujemy, że świętujecie ten wyjątkowy dzień razem z nami.
     </p>
+    <div class="countdown">
+  <div class="countdown-title">Do ślubu pozostało</div>
+
+  <div class="countdown-grid">
+    <div>
+      <span id="days">0</span>
+      <small>dni</small>
+    </div>
+
+    <div>
+      <span id="hours">0</span>
+      <small>godzin</small>
+    </div>
+
+    <div>
+      <span id="minutes">0</span>
+      <small>minut</small>
+    </div>
+
+    <div>
+      <span id="seconds">0</span>
+      <small>sekund</small>
+    </div>
+  </div>
+</div>
      <section class="upload-section">
       <h2>📸 Podziel się wspomnieniami</h2>
 
