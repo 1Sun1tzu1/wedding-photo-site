@@ -384,7 +384,12 @@
       resultText.innerText = "Sprawdzamy, jak dobrze znasz Adrianę i Tobiasza...";
 
       resultBox.scrollIntoView({ behavior: "smooth" });
+      formData.append("score", score);
 
+fetch("https://script.google.com/macros/s/AKfycbzflZU7PSA0b-ouVXE-zOqfjbAjalgUux4jUMqd-tEmByQbAZi1c080ROgxpl3YjDDt/exec", {
+  method: "POST",
+  body: formData
+});
       setTimeout(function() {
         resultTitle.innerText = "Twój wynik: " + score + "/" + total;
 
