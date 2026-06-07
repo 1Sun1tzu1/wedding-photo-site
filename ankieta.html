@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ankieta weselna</title>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.35)),
+        url('images/weele.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-family: Arial, sans-serif;
+      color: #2d2524;
+      padding: 24px;
+      box-sizing: border-box;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.92);
+      padding: 45px 35px;
+      border-radius: 32px;
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      box-sizing: border-box;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, serif;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 46px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #5f5351;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 18px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 14px;
+      margin-top: 7px;
+      border-radius: 16px;
+      border: 1px solid rgba(183,110,121,0.35);
+      font-size: 16px;
+      box-sizing: border-box;
+      background: rgba(255,255,255,0.95);
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 18px 36px;
+      background: #b76e79;
+      color: white;
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    .button-row {
+      text-align: center;
+    }
+
+    .section-divider {
+      margin-top: 35px;
+      padding-top: 25px;
+      border-top: 1px solid rgba(183,110,121,0.25);
+    }
+
+    .result-box {
+      display: none;
+      margin-top: 30px;
+      padding: 28px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.9);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      text-align: center;
+    }
+
+    .result-box h2 {
+      color: #b76e79;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 25px;
+      color: #b76e79;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    @media (max-width: 700px) {
+      .card {
+        padding: 32px 22px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="card">
+
+    <h1>📝 Ankieta weselna</h1>
+
+    <p>
+      Wypełnij krótką, zabawną ankietę dla Adriany i Tobiasza.
+      Odpowiedzi będą piękną pamiątką po weselu ❤️
+    </p>
+
+    <form id="ankietaForm">
+
+      <label>1. Jestem gościem:</label>
+      <select name="guestOf">
+        <option value="">Wybierz odpowiedź</option>
+        <option>Panny Młodej</option>
+        <option>Pana Młodego</option>
+        <option>Obojga</option>
+        <option>Przyszedłem/przyszłam dla jedzenia</option>
+      </select>
+
+      <label>2. Znamy się od:</label>
+      <input type="text" name="knownSince" placeholder="np. od dzieciństwa, od pracy, od zawsze...">
+
+      <label>3. Poznaliśmy się:</label>
+      <input type="text" name="metWhere" placeholder="np. w szkole, na imprezie, przez rodzinę...">
+
+      <label>4. Na ślub dotarliśmy z:</label>
+      <input type="text" name="arrivedFrom" placeholder="np. Lublina, Warszawy, końca świata...">
+
+      <label>5. Poruszaliśmy się:</label>
+      <select name="transport">
+        <option value="">Wybierz odpowiedź</option>
+        <option>Samochodem</option>
+        <option>Samolotem</option>
+        <option>Pieszo</option>
+        <option>Rowerem</option>
+        <option>Pociągiem</option>
+        <option>Taksówką</option>
+        <option>Na miotle</option>
+        <option>Teleportacją</option>
+        <option>Inaczej</option>
+      </select>
+
+      <label>6. Moje ulubione wspomnienie z Parą Młodą:</label>
+      <textarea name="favouriteMemory" placeholder="Napisz coś miłego, śmiesznego albo wzruszającego..."></textarea>
+
+      <div class="section-divider">
+        <h2>💛 Złote porady dla Pary Młodej</h2>
+      </div>
+
+      <label>1. Pamiętajcie zawsze, aby:</label>
+      <input type="text" name="advice1">
+
+      <label>2. Kluczem do szczęśliwego małżeństwa jest:</label>
+      <input type="text" name="advice2">
+
+      <label>3. Starajcie się zawsze:</label>
+      <input type="text" name="advice3">
+
+      <label>4. Nie bójcie się:</label>
+      <input type="text" name="advice4">
+
+      <label>5. W trudnych chwilach:</label>
+      <input type="text" name="advice5">
+
+      <div class="section-divider">
+        <h2>😂 Quiz z punktami</h2>
+        <p>
+          Teraz sprawdzimy, jak dobrze znasz Parę Młodą.
+          Niektóre odpowiedzi są poważne, inne... mniej 😄
+        </p>
+      </div>
+
+      <label>1. Kto będzie rządził w małżeństwie?</label>
+      <select name="rules">
+        <option value="">Wybierz odpowiedź</option>
+        <option>Adriana</option>
+        <option>Tobiasz</option>
+        <option>Oboje</option>
+        <option>Teściowa</option>
+        <option>Ten, kto trzyma pilota</option>
+      </select>
+
+      <label>2. Kto jest większym bałaganiarzem?</label>
+      <select name="messy">
+        <option value="">Wybierz odpowiedź</option>
+        <option>Adriana</option>
+        <option>Tobiasz</option>
+        <option>Oboje</option>
+        <option>Nikt się nie przyzna</option>
+      </select>
+
+      <label>3. Kto gotuje?</label>
+      <select name="cooking">
+        <option value="">Wybierz odpowiedź</option>
+        <option>Adriana</option>
+        <option>Tobiasz</option>
+        <option>Oboje</option>
+        <option>Uber Eats</option>
+        <option>Kto pierwszy zgłodnieje</option>
+      </select>
+
+      <label>4. Kto głośniej chrapie?</label>
+      <select name="snoring">
+        <option value="">Wybierz odpowiedź</option>
+        <option>Adriana</option>
+        <option>Tobiasz</option>
+        <option>Oboje</option>
+        <option>Sąsiedzi już wiedzą</option>
+        <option>To pytanie zostanie usunięte z protokołu</option>
+      </select>
+
+      <label>5. Kto będzie trzymał pieniądze?</label>
+      <select name="money">
+        <option value="">Wybierz odpowiedź</option>
+        <option>Adriana</option>
+        <option>Tobiasz</option>
+        <option>Oboje</option>
+        <option>Bank</option>
+        <option>Pieniądze same będą uciekać</option>
+      </select>
+
+      <label>6. Ile dzieci planują mieć?</label>
+      <select name="childrenCount">
+        <option value="">Wybierz odpowiedź</option>
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>Całą drużynę piłkarską</option>
+        <option>Tyle, ile pozwoli cierpliwość</option>
+      </select>
+
+      <label>7. Kto będzie miękkim rodzicem?</label>
+      <select name="softParent">
+        <option value="">Wybierz odpowiedź</option>
+        <option>Adriana</option>
+        <option>Tobiasz</option>
+        <option>Oboje</option>
+        <option>Dziadkowie</option>
+        <option>Dziecko będzie rządzić wszystkimi</option>
+      </select>
+
+      <label>8. Kto pierwszy zaśnie podczas filmu?</label>
+      <select name="movieSleep">
+        <option value="">Wybierz odpowiedź</option>
+        <option>Adriana</option>
+        <option>Tobiasz</option>
+        <option>Oboje</option>
+        <option>Film zaśnie pierwszy</option>
+      </select>
+
+      <label>9. Kto dłużej przygotowuje się do wyjścia?</label>
+      <select name="gettingReady">
+        <option value="">Wybierz odpowiedź</option>
+        <option>Adriana</option>
+        <option>Tobiasz</option>
+        <option>Oboje</option>
+        <option>To największa tajemnica związku</option>
+      </select>
+
+      <label>10. Kto pierwszy zgubi coś ważnego?</label>
+      <select name="losesThings">
+        <option value="">Wybierz odpowiedź</option>
+        <option>Adriana</option>
+        <option>Tobiasz</option>
+        <option>Oboje</option>
+        <option>To rzeczy będą gubić ich</option>
+      </select>
+
+      <label>11. Kto jest ulubionym bratem Ady?</label>
+      <select name="favouriteBrother">
+        <option value="">Wybierz odpowiedź</option>
+        <option>Rafał</option>
+        <option>Rafał, ale głośniej</option>
+        <option>Ten najprzystojniejszy</option>
+        <option>Niebezpieczne pytanie</option>
+        <option>Odpowiedź oczywista: Rafał</option>
+      </select>
+
+      <label>12. Czy brat Ady jest singlem?</label>
+      <select name="brotherSingle">
+        <option value="">Wybierz odpowiedź</option>
+        <option>Tak</option>
+        <option>Nie</option>
+        <option>Zależy kto pyta</option>
+        <option>To pytanie ma drugie dno</option>
+        <option>Proszę zostawić numer telefonu</option>
+      </select>
+
+      <label>Na koniec: napisz coś od siebie ❤️</label>
+      <textarea name="finalMessage" placeholder="Życzenia, żart, rada, wspomnienie..."></textarea>
+
+      <div class="button-row">
+        <button type="submit" class="button">
+          Wyślij ankietę ❤️
+        </button>
+      </div>
+
+    </form>
+
+    <div id="resultBox" class="result-box">
+      <h2 id="resultTitle"></h2>
+      <p id="resultText"></p>
+    </div>
+
+    <a href="index.html" class="back-link">← Wróć na stronę wesela</a>
+
+  </main>
+
+  <script>
+    const correctAnswers = {
+      rules: "Adriana",
+      messy: "Tobiasz",
+      cooking: "Oboje",
+      snoring: "Tobiasz",
+      money: "Adriana",
+      childrenCount: "2",
+      softParent: "Tobiasz",
+      movieSleep: "Tobiasz",
+      gettingReady: "Adriana",
+      losesThings: "Tobiasz",
+      favouriteBrother: "Odpowiedź oczywista: Rafał",
+      brotherSingle: "Zależy kto pyta"
+    };
+
+    document.getElementById("ankietaForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const formData = new FormData(form);
+
+      let score = 0;
+      const total = Object.keys(correctAnswers).length;
+
+      for (const key in correctAnswers) {
+        if (formData.get(key) === correctAnswers[key]) {
+          score++;
+        }
+      }
+
+      const resultBox = document.getElementById("resultBox");
+      const resultTitle = document.getElementById("resultTitle");
+      const resultText = document.getElementById("resultText");
+
+      resultBox.style.display = "block";
+      resultTitle.innerText = "Liczymy Twoje odpowiedzi... ⏳";
+      resultText.innerText = "Sprawdzamy, jak dobrze znasz Adrianę i Tobiasza...";
+
+      resultBox.scrollIntoView({ behavior: "smooth" });
+
+      setTimeout(function() {
+        resultTitle.innerText = "Twój wynik: " + score + "/" + total;
+
+        if (score <= 3) {
+          resultText.innerText =
+            "Wygląda na to, że jesteś tu głównie dla jedzenia, tańców i dobrej zabawy 😄";
+        } else if (score <= 6) {
+          resultText.innerText =
+            "Coś tam wiesz, ale Para Młoda może mieć do Ciebie kilka pytań 😅";
+        } else if (score <= 9) {
+          resultText.innerText =
+            "Bardzo dobry wynik! Znasz ich całkiem nieźle ❤️";
+        } else {
+          resultText.innerText =
+            "Podejrzanie dobry wynik! Albo znasz ich świetnie, albo ktoś tu miał przeciek od Pary Młodej 👀";
+        }
+      }, 3000);
+    });
+  </script>
+
+</body>
+</html>
