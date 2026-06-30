@@ -242,7 +242,7 @@
         <option>Adriana</option>
         <option>Tobiasz</option>
         <option>Oboje</option>
-        <option>Sąsiedzi już wiedzą</option>
+        <option>Teściowa</option>
         <option>To pytanie zostanie usunięte z protokołu</option>
       </select>
 
@@ -308,20 +308,20 @@
       <select name="favouriteBrother">
         <option value="">Wybierz odpowiedź</option>
         <option>Rafał</option>
-        <option>Rafał, ale głośniej</option>
-        <option>Ten najprzystojniejszy</option>
+        <option>Grzesiek</option>
+        <option>Robert</option>
         <option>Niebezpieczne pytanie</option>
-        <option>Odpowiedź oczywista: Rafał</option>
+        <option>Sylwester</option>
       </select>
 
-      <label>12. Czy brat Ady jest singlem?</label>
-      <select name="brotherSingle">
+      <label>12. Ilu braci ma Pan młody?</label>
+      <select name="howmanybrothers">
         <option value="">Wybierz odpowiedź</option>
-        <option>Tak</option>
-        <option>Nie</option>
+        <option>5</option>
+        <option>2</option>
         <option>Zależy kto pyta</option>
         <option>To pytanie ma drugie dno</option>
-        <option>Proszę zostawić numer telefonu</option>
+        <option>3</option>
       </select>
 
       <label>Na koniec: napisz coś od siebie ❤️</label>
@@ -346,18 +346,18 @@
 
   <script>
     const correctAnswers = {
-      rules: "Adriana",
-      messy: "Tobiasz",
-      cooking: "Oboje",
-      snoring: "Tobiasz",
-      money: "Adriana",
+      rules: "Oboje",
+      messy: "Adriana",
+      cooking: "Tobiasz",
+      snoring: "Teściowa",
+      money: "Pieniądze same będą uciekać",
       childrenCount: "2",
-      softParent: "Tobiasz",
-      movieSleep: "Tobiasz",
+      softParent: "Dziecko będzie rządzić wszystkimi",
+      movieSleep: "Adriana",
       gettingReady: "Adriana",
       losesThings: "Tobiasz",
-      favouriteBrother: "Odpowiedź oczywista: Rafał",
-      brotherSingle: "Zależy kto pyta"
+      favouriteBrother: "Rafał",
+      howmanybrothers: "3"
     };
 
     document.getElementById("ankietaForm").addEventListener("submit", function(e) {
