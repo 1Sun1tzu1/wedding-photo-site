@@ -250,6 +250,121 @@
   border-radius: 24px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
+
+    .menu-section {
+  margin-top: 45px;
+  padding-top: 35px;
+}
+
+.menu-card {
+  position: relative;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 55px 38px 45px;
+  background: #fffdf7;
+  border: 2px solid rgba(80, 70, 55, 0.45);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.12);
+  text-align: center;
+  color: #3b332f;
+  background-image:
+    radial-gradient(rgba(183,110,121,0.05) 1px, transparent 1px);
+  background-size: 12px 12px;
+}
+
+.menu-card h2 {
+  font-family: Georgia, serif;
+  font-size: 48px;
+  font-weight: normal;
+  color: #8a6a48;
+  margin: 0;
+}
+
+.menu-line {
+  width: 90px;
+  height: 1px;
+  background: #bfa77d;
+  margin: 12px auto 28px;
+}
+
+.small-line {
+  margin-top: 28px;
+  margin-bottom: 22px;
+}
+
+.menu-card h3 {
+  font-family: Georgia, serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 20px;
+  margin: 26px 0 10px;
+  color: #3b332f;
+}
+
+.menu-card p {
+  font-size: 13px;
+  line-height: 1.55;
+  text-transform: uppercase;
+  margin: 4px 0;
+  color: #2f2a27;
+}
+
+.script-text {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 32px;
+  color: #8a6a48;
+  margin: 28px 0 20px;
+}
+
+.bon {
+  font-family: Georgia, serif;
+  font-size: 28px;
+  color: #8a6a48;
+  margin-top: 20px;
+}
+
+.lemons {
+  position: absolute;
+  font-size: 44px;
+}
+
+.lemons-top-left {
+  top: 18px;
+  left: 22px;
+}
+
+.lemons-top-right {
+  top: 18px;
+  right: 22px;
+}
+
+.lemons-bottom {
+  position: static;
+  margin-top: 18px;
+  font-size: 54px;
+}
+
+@media (max-width: 600px) {
+  .menu-card {
+    padding: 48px 22px 38px;
+  }
+
+  .menu-card h2 {
+    font-size: 42px;
+  }
+
+  .menu-card h3 {
+    font-size: 18px;
+  }
+
+  .menu-card p {
+    font-size: 11px;
+  }
+
+  .lemons {
+    font-size: 34px;
+  }
+}
   </style>
 </head>
 
@@ -386,7 +501,46 @@
     Wypełnij ankietę ślubną
   </a>
 </section>
+<section class="menu-section">
+  <div class="menu-card">
+    <div class="lemons lemons-top-left">🍋</div>
+    <div class="lemons lemons-top-right">🍋</div>
 
+    <h2>Menu</h2>
+    <div class="menu-line"></div>
+
+    <h3>Zupa</h3>
+    <p>Rosół z makaronem / marchewką / natką pietruszki</p>
+    <p>Zupa borowikowa / grzanki / koperek</p>
+
+    <h3>Danie główne</h3>
+    <p>Udko kacze / sos wiśniowy / konfitura z czerwonej cebuli / kluski śląskie / sałatka z pomarańczy</p>
+    <p>Wege: sznycel z bakłażana w panierce kremowej / buraczki marynowane</p>
+    <p>Dzieci: stripsy drobiowe / frytki / świeży ogórek</p>
+
+    <h3>Kolejne danie gorące</h3>
+    <p>Łosoś pieczony / sos cytrynowy / dziki brokuł / risotto parmezanowe</p>
+    <p>Wege: tagliatelle z karmelizowaną gruszką / gorgonzola / orzechy włoskie / białe wino</p>
+    <p>Dzieci: mini pizza z szynką i serem</p>
+
+    <div class="script-text">Tort weselny</div>
+
+    <h3>Czwarte gorące danie</h3>
+    <p>Trio mięs: żeberka BBQ / szaszłyki / udko podane z grillowanymi warzywami i frytkami Steak House</p>
+    <p>Wege: pierogi z bobem na sosie maślanym z pangrattato</p>
+    <p>Dzieci: spaghetti ala bolognese</p>
+
+    <h3>Ostatnie danie gorące</h3>
+    <p>Barszcz czerwony z trio: krokiety, pierogi, zapiekanki</p>
+
+    <div class="menu-line small-line"></div>
+
+    <div class="bon">Buon appetito!</div>
+
+    <div class="lemons lemons-bottom">🍋</div>
+  </div>
+</section>
+    
   </main>
 
   <script>
